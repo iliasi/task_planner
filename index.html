@@ -9,6 +9,42 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <h1>Task App</h1>
+            <form>
+                <div class="form-group">
+                  <label for="nameInput">Name</label>
+                  <input type="text" class="form-control" id="nameInput" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="descriptionInput">Description</label>
+                  <input type="text" class="form-control" id="descriptionInput" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="assignInput">Assigned To</label>
+                    <input type="text" class="form-control" id="assignInput" placeholder="">
+                </div>
+                <div class="form-group">
+
+                    <div class="input-append date" id="datetimepicker" data-date="12-01-2021" data-date-format="dd-mm-yyyy">
+                        <label for="dateInput">Due Date</label>
+                        <input class="span2" size="16" type="text" value="12-01-2020">
+                        <span class="add-on"><i class="icon-remove"></i></span>
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                    
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected>In progress</option>
+                        <option value="1">Done</option>
+                        <option value="2">Pending</option>
+                    </select>
+                    <button type="button" class="btn btn-primary">Submit</button>
+
+                </div>
+              </form>
+        </div>
+    </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
