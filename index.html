@@ -13,43 +13,65 @@
     <div class="container">
         <div class="row">
             <h1>Task App</h1>
-            <form>
+            <form id='task-form'>
                 <div class="form-group">
                   <label for="nameInput">Name</label>
                   <input type="text" class="form-control" id="nameInput" placeholder="">
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">
+                    Name needs to be greater than 5 characters
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="descriptionInput">Description</label>
                   <input type="text" class="form-control" id="descriptionInput" placeholder="">
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">
+                    Description needs to be greater than 5 characters
+                  </div>
                 </div>
                 <div class="row">
                     <div class="col-2">
                     <div class="form-group">
                         <label for="assignInput">Assigned To</label>
                         <input type="text" class="form-control" id="assignInput" placeholder="">
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                            Assigned name needs to be greater than 5 characters
+                        </div>
                     </div>
                     </div>
                     <div class="col-2">
                     <div class="form-group">
                         <div class="input-append date" id="datetimepicker" data-date="12-01-2021" data-date-format="dd-mm-yyyy">
                             <label for="dateInput">Due Date</label>
-                            <input class="span2" size="16" type="text" value="12-01-2020">
+                            <input class="span2" size="16" type="text" value="12-01-2020" id='datetimePicker'>
                             <span class="add-on"><i class="icon-remove"></i></span>
                             <span class="add-on"><i class="icon-th"></i></span>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">
+                                The Date is empty!
+                            </div>
                         </div>
                     </div>
                     </div>
                 </div>
                 <div class="row">
                 <div class="col-2">
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>In progress</option>
-                        <option value="1">Done</option>
-                        <option value="2">Pending</option>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="progresStatus">
+                        <option selected></option>
+                        <option value='1'>In progress</option>
+                        <option value="2">Done</option>
+                        <option value="3">Pending</option>
+                        
                     </select>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">
+                        Task Status is not selected!
+                    </div>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="formSubmit">Submit</button>
 
                 </div>
                 </div>
@@ -121,5 +143,6 @@
     </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 </html>
