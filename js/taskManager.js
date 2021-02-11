@@ -1,0 +1,67 @@
+createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+    const html = `
+        <li class="card" style="min-width: 50vw">
+            <div class="card-body">
+                <h5 class="card-title">${name}</h5>
+                <p class="card-text">
+                    ${description}
+                </p>
+                <p class="card-text">${assignedTo}</p>
+                <p class="card-text">${dueDate}</p>
+                <div class="card-footer row">
+                    <div class="col-6">
+                        <p class="card-text"><b>${status}</b></p>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-outline-success done-button">
+                            Done
+                        </button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-outline-danger delete-button">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </li>
+    `
+    return html;
+}
+
+class TaskManager{
+    constructor(currentId, tasks){
+        this.currentId = 0;
+        this.tasks = [];
+    }
+    addTask(name, description, assignedTo, dueDate, status) {
+        const newTask = {
+            taskId: this.currentId++,
+            taskName: name,
+            taskDescription: description,
+            taskAssignedTo: assignedTo,
+            taskDueDate: dueDate,
+            taskStatus: status,
+
+        };
+        
+        this.tasks.push(newTask);
+
+    }
+
+    render() {
+        let taskHtmlList = [];
+
+        for(let i = 0; i < this.tasks.length; i++) {
+            const task = this.tasks[i];
+
+            const taskDate = new Date(task.taskDueDate);
+            const formattedDate = taskDate.getDate() + '/'  + (taskDate.getMonth() + 1) + "/" + taskDate.getFullYear();
+            const taskHtml = createTaskHtml(task.taskName, task.taskDescription, task.taskAssignedTo, formattedDate, task.taskStatus);
+            taskHtmlList.push(taskHtml);
+        }
+        const tasksHtml = taskHtmlList.join('\n');
+        const ulList = document.querySelector("#task-list");
+        ulList.innerHTML = tasksHtml;
+    }
+}
