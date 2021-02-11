@@ -1,6 +1,4 @@
-
 tasks = new TaskManager();
-
 const formSubmitValidate = document.querySelector('#task-form');
 const formValidateNameInput = document.querySelector('#nameInput');
 const formValidateDescriptionInput = document.querySelector('#descriptionInput');
