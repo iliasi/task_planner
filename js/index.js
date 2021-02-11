@@ -1,3 +1,6 @@
+
+tasks = new TaskManager();
+
 const formSubmitValidate = document.querySelector('#task-form');
 const formValidateNameInput = document.querySelector('#nameInput');
 const formValidateDescriptionInput = document.querySelector('#descriptionInput');
@@ -52,4 +55,8 @@ formSubmitValidate.addEventListener('submit', (event) => {
         formValidateProgresStatus.classList.add('is-invalid');
         formValidateProgresStatus.classList.remove('is-valid');
     }
+    
+    tasks.addTask(formValidateNameInput.value, formValidateDescriptionInput.value, formValidateAssignInput.value, formValidateDatetimePicker.value, formValidateProgresStatus.value);
+    tasks.render();
+
 });
