@@ -1,6 +1,6 @@
-createTaskHtml = (name, description, assignedTo, dueDate, status) => {
+createTaskHtml = (taskId, name, description, assignedTo, dueDate, status) => {
     const html = `
-        <li class="card" style="min-width: 50vw">
+        <li class="card" data-task-id="${taskId}"  style="min-width: 50vw">
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">
@@ -49,6 +49,17 @@ class TaskManager{
 
     }
 
+    findTaskById(taskId) {
+        let taskFound;
+        for(let i = 0; i < this.tasks.length; i++){
+            const task = this.tasks[i];
+            if (task.taskId === taskId) {
+                taskFound = task;
+            }
+        }
+        return taskFound;
+    }
+
     render() {
         let taskHtmlList = [];
 
@@ -57,7 +68,7 @@ class TaskManager{
 
             const taskDate = new Date(task.taskDueDate);
             const formattedDate = taskDate.getDate() + '/'  + (taskDate.getMonth() + 1) + "/" + taskDate.getFullYear();
-            const taskHtml = createTaskHtml(task.taskName, task.taskDescription, task.taskAssignedTo, formattedDate, task.taskStatus);
+            const taskHtml = createTaskHtml(task.taskId, task.taskName, task.taskDescription, task.taskAssignedTo, formattedDate, task.taskStatus);
             taskHtmlList.push(taskHtml);
         }
         const tasksHtml = taskHtmlList.join('\n');
