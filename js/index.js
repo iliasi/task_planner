@@ -1,6 +1,4 @@
-
 tasks = new TaskManager();
-
 const formSubmitValidate = document.querySelector('#task-form');
 const formValidateNameInput = document.querySelector('#nameInput');
 const formValidateDescriptionInput = document.querySelector('#descriptionInput');
@@ -60,19 +58,14 @@ formSubmitValidate.addEventListener('submit', (event) => {
     tasks.render();
 
 });
-
-//TODO link the task-list id to a new variable and then add an event listener
-const task_list = document.querySelector('#task-list');
-
-task_list.addEventListener("click", (event) => {
+const task_list = document.querySelector("#task-list");
+task_list.addEventListener('click', (event) => {
     if (event.target.classList.contains("done-button")) {
-        //event.preventDefault();
         const selectedTask = event.target.parentElement.parentElement.parentElement.parentElement;
         const taskId = Number(selectedTask.dataset.taskId);
         const taskDone = tasks.findTaskById(taskId);
         taskDone.taskStatus = "Done";
-
         tasks.render();
-
     }
+
 });
