@@ -33,11 +33,8 @@ class TaskManager{
     constructor(currentId, tasks){
         this.currentId = 0;   
         this.tasks = [];
+}
 
-        // objRecordset.Save destination,persistformat(requires no parameters!)
-
-
-    }
     addTask(name, description, assignedTo, dueDate, status) {
         const newTask = {
             taskId: this.currentId++,
@@ -97,5 +94,23 @@ class TaskManager{
             this.CurrentId = Number(Id);
         }
     }
+    
+    delete(taskId) {
+        const newTasks = [ ];
+        for (let i = 0; i < this.tasks.length ; i++) {
+            const currentTask = this.tasks[i];
+
+            if (currentTask.taskId !== taskId) {
+                newTasks.push(currentTask);
+                
+            }
+            
+        }
+
+        this.tasks = newTasks;
+
+    }
+
 
 }
+

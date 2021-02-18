@@ -73,5 +73,17 @@ task_list.addEventListener('click', (event) => {
         tasks.render();
        
     }
+   
+
+    if (event.target.classList.contains("delete-button")) {
+        const selectedTask = event.target.parentElement.parentElement.parentElement.parentElement;
+        const taskId = Number(selectedTask.dataset.taskId);
+        tasks.delete(taskId);
+        
+        tasks.save();
+        tasks.render();
+       
+    }
+
 
 });
