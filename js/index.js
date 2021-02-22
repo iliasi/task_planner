@@ -1,4 +1,6 @@
 tasks = new TaskManager();
+tasks.load();
+tasks.render();
 const formSubmitValidate = document.querySelector('#task-form');
 const formValidateNameInput = document.querySelector('#nameInput');
 const formValidateDescriptionInput = document.querySelector('#descriptionInput');
@@ -55,7 +57,9 @@ formSubmitValidate.addEventListener('submit', (event) => {
     }
     
     tasks.addTask(formValidateNameInput.value, formValidateDescriptionInput.value, formValidateAssignInput.value, formValidateDatetimePicker.value, formValidateProgresStatus.value);
+    tasks.save();
     tasks.render();
+ 
 
 });
 const task_list = document.querySelector("#task-list");
@@ -65,7 +69,21 @@ task_list.addEventListener('click', (event) => {
         const taskId = Number(selectedTask.dataset.taskId);
         const taskDone = tasks.findTaskById(taskId);
         taskDone.taskStatus = "Done";
+        tasks.save();
         tasks.render();
+       
     }
+   
+
+    if (event.target.classList.contains("delete-button")) {
+        const selectedTask = event.target.parentElement.parentElement.parentElement.parentElement;
+        const taskId = Number(selectedTask.dataset.taskId);
+        tasks.delete(taskId);
+        
+        tasks.save();
+        tasks.render();
+       
+    }
+
 
 });
