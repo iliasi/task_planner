@@ -1,0 +1,27 @@
+{
+  "name": "task_planner",
+  "version": "1.0.0",
+  "description": "\"Task Planner App\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iliasi/task_planner.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "Ilias Ibrahim and Tizibit Berta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iliasi/task_planner/issues"
+  },
+  "homepage": "https://github.com/iliasi/task_planner#readme",
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0"
+  }
+}

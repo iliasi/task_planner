@@ -2,6 +2,7 @@ createTaskHtml = (taskId, name, description, assignedTo, dueDate, status) => {
     const html = `
         <li class="card" data-task-id="${taskId}"  style="min-width: 50vw">
             <div class="card-body">
+                
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">
                     ${description}
@@ -30,12 +31,13 @@ createTaskHtml = (taskId, name, description, assignedTo, dueDate, status) => {
 }
 
 class TaskManager{
-    constructor(currentId, tasks){
-        this.currentId = 0;   
+    constructor(currentId = 0){
+        this.currentId = currentId;   
         this.tasks = [];
-}
+    }
 
     addTask(name, description, assignedTo, dueDate, status) {
+
         const newTask = {
             taskId: this.currentId++,
             taskName: name,
@@ -113,4 +115,6 @@ class TaskManager{
 
 
 }
+//exports our TaskManager class and its corresponding methods
+module.exports = TaskManager;
 
