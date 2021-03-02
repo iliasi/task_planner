@@ -1,2 +1,5 @@
 # Final Project JWD4 -- Task Planner
-creat by ilias and tiza
+A simple Task Planner App created using HTML, CSS and Vanilla JavaScript
+# Authors
+Ilias
+Tiza
